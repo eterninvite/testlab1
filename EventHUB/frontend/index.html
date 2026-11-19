@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventHub — 12 Design Patterns în Managementul Evenimentelor</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">EH</div>
+        <div>
+          <h1>EventHub <span class="brand-sub">Design Patterns Lab</span></h1>
+          <p class="subtitle">12 Design Patterns Java pentru managementul evenimentelor (fără Singleton)</p>
+        </div>
+      </div>
+
+      <div class="status-wrap">
+        <span id="backendStatus" class="status-badge status-checking">
+          <span class="dot"></span> Verificare server Java...
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="controls-bar" aria-label="Filtrare și căutare pattern-uri">
+      <div class="category-filters" role="group" aria-label="Filtrare după categorie">
+        <button class="filter-btn active" data-category="all">Toate (12)</button>
+        <button class="filter-btn" data-category="Creational">Creational (4)</button>
+        <button class="filter-btn" data-category="Structural">Structural (4)</button>
+        <button class="filter-btn" data-category="Behavioral">Behavioral (4)</button>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Caută pattern, ex: bilete, agendă, Strategy, Undo..."
+          aria-label="Caută design pattern"
+        />
+      </div>
+    </section>
+
+    <div class="workspace-grid">
+      <aside class="pattern-list-panel" aria-label="Lista celor 12 design patterns">
+        <div class="panel-header">
+          <h2>Catalog Pattern-uri</h2>
+          <span id="visibleCount" class="count-pill">12 afișate</span>
+        </div>
+        <div id="patternList" class="pattern-list"></div>
+      </aside>
+
+      <section id="patternDetail" class="detail-panel" aria-live="polite">
+        <div class="detail-header">
+          <div>
+            <span id="detailCategory" class="category-tag"></span>
+            <h2 id="detailTitle"></h2>
+            <p id="detailPackage" class="package-path"></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Scop și problema rezolvată în EventHub</h3>
+          <p id="detailPurpose"></p>
+        </div>
+
+        <div class="guidance-grid">
+          <div class="guidance-card good">
+            <h3>Când să îl folosești</h3>
+            <ul id="detailWhenToUse"></ul>
+          </div>
+          <div class="guidance-card avoid">
+            <h3>Când să îl eviți</h3>
+            <ul id="detailWhenToAvoid"></ul>
+          </div>
+        </div>
+
+        <div class="runner-card">
+          <div class="runner-header">
+            <h3>Rulare interactivă</h3>
+            <span id="runModeTag" class="mode-tag">Pregătit</span>
+          </div>
+          <p id="detailInputHint" class="input-hint"></p>
+
+          <div class="presets-row" id="presetButtons"></div>
+
+          <div class="runner-controls">
+            <input
+              type="text"
+              id="patternInput"
+              class="runner-input"
+              placeholder="Introdu datele de test..."
+              aria-label="Input pentru rularea exemplului"
+            />
+            <button id="runBtn" class="run-btn">Rulează exemplul</button>
+          </div>
+
+          <div class="console-wrap">
+            <div class="console-header">
+              <span>Output / Log-uri execuție</span>
+              <button id="clearLogsBtn" class="mini-btn" type="button">Curăță</button>
+            </div>
+            <pre id="outputConsole" class="console-output">Apasă „Rulează exemplul” pentru a executa pattern-ul selectat.</pre>
+          </div>
+        </div>
+
+        <div class="code-card">
+          <div class="code-header">
+            <h3>Cod Java comentat</h3>
+            <button id="copyCodeBtn" class="mini-btn" type="button">Copiază codul</button>
+          </div>
+          <pre class="code-block"><code id="detailCode"></code></pre>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>EventHub — Aplicație educativă Java + Web • 12 Design Patterns (Creational, Structural, Behavioral)</span>
+      <span>Funcționează cu Backend Java (<code>/api/run</code>) și în mod static pe GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
